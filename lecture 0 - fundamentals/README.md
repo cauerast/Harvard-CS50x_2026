@@ -1,1 +1,1 @@
-# Harvard-CS50x_2026
+# Lecture 0

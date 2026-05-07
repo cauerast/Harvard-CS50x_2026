@@ -4,8 +4,10 @@
 // 
 
 int main(void){
-    int x = get_int("x value -> \n");
-    int y = get_int("y value -> \n");
+    int x;
+    scanf("x value -> %i\n", &x);
+    int y;
+    scanf("y value -> %i\n", &y);
 
     if(x > y){
         printf("%d is greater then %d", x, y)

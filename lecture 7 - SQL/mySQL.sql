@@ -198,27 +198,49 @@ DELETE FROM products WHERE product_id >= 104
 SELECT * FROM products
 
 
--- PRIMARY KEY and AUTO_INCREMENT-- 
+-- PRIMARY KEY, AUTO_INCREMENT and FOREIGN KEY-- 
+
+CREATE TABLE customers(
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+)
+
+INSERT INTO customers(first_name, last_name)
+VALUES ("Fred", "Fish"),
+       ("Larry", "Lobster"),
+       ("Bubble", "Bass");
+
+SELECT * FROM customers;
+
 
 CREATE TABLE transactions(
     transaction_id INT PRIMARY KEY AUTO_INCREMENT,
     amount DECIMAL(5, 2),
-    transaction_date DATETIME DEFAULT NOW()
-    
-    e07w
-);"
+    transaction_date DATETIME DEFAULT NOW(),
+    customer_id INT,
+    FOREIGN KEY(customer_id) REFERENCES customers(customer_id) NOT NULL
+);
+
+-- AUTO_INCREMENT is set by default = 1, but you can change ->
+ALTER TABLE transactions
+AUTO_INCREMENT = 10;
+
 
 -- to add primary key in a table that already exists ->
 ALTER TABLE transactions
-ADD CONSTRAINT
-PRIMARY KEY(transaction_id);
+ADD CONSTRAINT PRIMARY KEY(transaction_id);
 
-INSERT INTO transactions(amount)
-VALUES (2.89),
-       (3.54),
-       (6.37);
+INSERT INTO transactions(amount, customer_id)
+VALUES (2.89, 3),
+       (3.54, 2),
+       (6.37, 3);
 
-INSERT INTO OSTUJR=
-DROP TABLE  
+-- to rename foreign key
+ALTER TABLE transactions
+ADD CONSTRAINT fk_customer_id
+FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
+
+DROP TABLE transactions;
 
 SELECT * FROM transactions

@@ -198,17 +198,27 @@ DELETE FROM products WHERE product_id >= 104
 SELECT * FROM products
 
 
--- 
+-- PRIMARY KEY and AUTO_INCREMENT-- 
 
 CREATE TABLE transactions(
-    transaction_id INT,
+    transaction_id INT PRIMARY KEY AUTO_INCREMENT,
     amount DECIMAL(5, 2),
     transaction_date DATETIME DEFAULT NOW()
-);
+    
+    e07w
+);"
 
-INSERT INTO transactions(transaction_id, amount)
-VALUES(3, 8.37);
+-- to add primary key in a table that already exists ->
+ALTER TABLE transactions
+ADD CONSTRAINT
+PRIMARY KEY(transaction_id);
 
-DROP TABLE transactions;
+INSERT INTO transactions(amount)
+VALUES (2.89),
+       (3.54),
+       (6.37);
+
+INSERT INTO OSTUJR=
+DROP TABLE  
 
 SELECT * FROM transactions

@@ -4,7 +4,7 @@
 int main(void){
 
     string s;
-    scanf("letter -> %s", &s);
+    scanf("letter -> %s", s);
     string strings[] = {"a", "b", "c", "d"};
 
     for(int i = 0; i < 4; i++){

@@ -6,7 +6,7 @@
 int main(void){
 
     string name;
-    scanf("enter your name: %s", &name);
+    scanf("enter your name: %s", name);
 
     for(int i = 0, n = strlen(name); i < n; i++){
 

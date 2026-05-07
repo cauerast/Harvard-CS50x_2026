@@ -5,7 +5,7 @@
 int main(void){
 
     string name;
-    scanf("enter your name: %s", &name);
+    scanf("enter your name: %s", name);
 
     int n = 0;
     while(name[n] != "\0"){

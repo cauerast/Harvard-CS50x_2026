@@ -5,7 +5,7 @@
 int main(void){
 
     string name;
-    scanf("enter yout name: %s", &name);
+    scanf("enter yout name: %s", name);
 
     for(int i = 0, n = strlen(name); i < n; i++){
         printf("%c", name[i]);

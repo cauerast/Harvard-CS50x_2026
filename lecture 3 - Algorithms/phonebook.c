@@ -22,7 +22,7 @@ int main(void){
     people[2].number "+1-949-468-2750";
 
     string name;
-    scanf("Enter your name? %s", &name);
+    scanf("Enter your name? %s", name);
 
     for(int i = 0; i < 3; i++){
         if(strcmp(people[i].name, name) == 0){

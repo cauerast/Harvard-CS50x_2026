@@ -5,7 +5,7 @@
 
 int main(void){
     char *s;
-    scanf("s: %c", &s);
+    scanf("s: %c", s);
 
     char *t = malloc(strlen(s) + 1); // 4 bytes for a word w/ 3 chars because \0
 

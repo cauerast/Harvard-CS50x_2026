@@ -5,7 +5,7 @@
 
 int main(void){
     char *s;
-    scanf("s: %c", &s);
+    scanf("s: %c", s);
 
     char *t = s;
 

@@ -173,7 +173,7 @@ ALTER TABLE products
 ADD CONSTRAINT
 UNIQUE(product_name);
 
---to add NOT NULL later ->
+-- to add NOT NULL later ->
 ALTER TABLE products
 MODIFY price DECIMAL(4, 2) NOT NULL;
 
@@ -220,8 +220,8 @@ CREATE TABLE transactions(
     transaction_id INT PRIMARY KEY AUTO_INCREMENT,
     amount DECIMAL(5, 2),
     transaction_date DATETIME DEFAULT NOW(),
-    customer_id INT,
-    FOREIGN KEY(customer_id) REFERENCES customers(customer_id) NOT NULL
+    customer_id INT, -- NOT NULL,
+    FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 );
 
 -- AUTO_INCREMENT is set by default = 1, but you can change ->
@@ -250,3 +250,9 @@ SELECT * FROM transactions
 
 
 -- JOINS -- 
+INSERT INTO transactions (amount, customer_id)
+VALUES (1.00, NULL);
+SELECT * FROM transactions;
+
+INSERT INTO customers(first_name, last_name)
+VALUES ("")

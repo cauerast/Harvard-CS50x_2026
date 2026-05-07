@@ -1,14 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
-float avarage(int length, int array[]){
-    int sum = 0
-    for(int i = 0; i < length; i++){
-        sum += array[i];
-    }
-    float avarage = sum / length
-
-}
+float avarage(int length, int array[]);
 
 int main(void){
     const int n;
@@ -23,4 +16,13 @@ int main(void){
 
     printf("avarage %f\n", avarage(n, scores));
     return 0;
+}
+
+float avarage(int length, int array[]){
+    int sum = 0
+    for(int i = 0; i < length; i++){
+        sum += array[i];
+    }
+    return = sum / (float) length
+
 }

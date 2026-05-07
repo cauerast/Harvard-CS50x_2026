@@ -294,4 +294,4 @@ add column job varchar(25) after hourly_pay
 SELECT * from employees
 
 
-
+select * from transactions

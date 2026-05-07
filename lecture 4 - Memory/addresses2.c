@@ -9,4 +9,5 @@ int main(void){
 
     // *x -> go to x or show the value that points
     // &x -> memory addres of a variable
+    
 }

@@ -270,5 +270,28 @@ ON transactions.customer_id = customers.customer_id;
 
 
 -- FUNCTIONS -- 
+select * from transactions;
+select COUNT(amount) as "today's transactions"
+from transactions; -- count rows in this column column
+
+select MAX(amount) as max
+from transactions; -- return the maximum amount
+
+select MIN(amount) as min
+from transactions; -- return the min amount
+
+select AVG(amount) as average
+from transactions; -- count return the avegage of list;
+
+select SUM(amount) as sum
+from transactions; -- return them sum of column
+
+select concat(first_name, " ", last_name) from employees as full_name
+from employees; 
+
+alter table employees
+add column job varchar(25) after hourly_pay
+SELECT * from employees
+
 
 

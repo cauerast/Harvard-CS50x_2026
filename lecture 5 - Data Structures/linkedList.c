@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <std.lib>
+#include <stdlib.h>
 #include <cs50.h>
 
 typedef struct node{
@@ -19,13 +19,19 @@ int main(void){
 
         //(*n).next == go to the n and apoint to the next item;
         // (*n).next = n->next 
-        (*n).number = get_int("Number: "); 
+        n->number = get_int("Number: "); 
         n->next = NULL;
 
         // prepend node to list
         n->next = list;
         list = n;
 
+    }
+    // print numbers
+    node *ptr = list;
+    while(ptr != NULL){
+        printf("%i\n", ptr->number);
+        ptr = ptr->next;
     }
     
     return 0;

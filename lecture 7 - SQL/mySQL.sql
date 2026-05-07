@@ -16,7 +16,27 @@ CREATE TABLE employees ( -- to create a table in database
     last_name VARCHAR(50),
     hourly_pay DECIMAL(5, 2),
     hire_date DATE
+    CONSTRAINT chk_hourly_pay CHECK(hourly_pay >= 10.00); -- check = if
+    -- constraint = block code that not expected condition
 );
+
+-- to ad the check in a table that already exists ->
+ALTER TABLE employees
+ADD CONSTRAINT chk_hourly_pay CHECK(hourly_pay >= 10.00);
+
+-- you can DROP the CONSTRAINTS also ->
+ALTER TABLE employees
+DROP chk_hourly_pay;
+
+---- CONSTRAINTS ---- 
+-- NOT NULL: Ensures that a column cannot accept NULL values.
+-- UNIQUE: Ensures that all values in a column are different.
+-- PRIMARY KEY: A combination of NOT NULL and UNIQUE. Uniquely identifies each row in a table.
+-- FOREIGN KEY: Prevents actions that would destroy links between tables (ensures referential integrity).
+-- CHECK: Ensures that the values in a column satisfy a specific condition.
+-- DEFAULT: Sets a default value for a column when no value is specified.
+
+
 
 SELECT * FROM employees; -- Select all from table -- reload -- (show table)
 
@@ -114,4 +134,81 @@ ROLLBACK; -- restore by savepoint
 SELECT * FROM employees;
 
 
-SELECT * FROM employees;
+
+-- DATE AND TIME --
+CREATE TABLE test(
+    my_date DATE,
+    my_time TIME,
+    my_datetime DATETIME
+);
+
+INSERT INTO test
+VALUES (CURRENT_DATE(), CURRENT_TIME(), NOW());
+
+drop table test;
+
+SELECT * FROM test;
+
+
+
+---- CONSTRAINTS ---- 
+-- NOT NULL: Ensures that a column cannot accept NULL values.
+-- UNIQUE: Ensures that all values in a column are different.
+-- PRIMARY KEY: A combination of NOT NULL and UNIQUE. Uniquely identifies each row in a table.
+-- FOREIGN KEY: Prevents actions that would destroy links between tables (ensures referential integrity).
+-- CHECK: Ensures that the values in a column satisfy a specific condition.
+-- DEFAULT: Sets a default value for a column when no value is specified.
+
+
+-- CONSTRAINTS -> UNIQUE and NOT NULL and DEFAULT--
+CREATE TABLE products (
+    product_id INT,
+    product_name VARCHAR(25) UNIQUE,
+    price DECIMAL(4, 2) NOT NULL DEFAULT 0.00
+);
+
+-- to add UNIQUE later -> 
+ALTER TABLE products
+ADD CONSTRAINT
+UNIQUE(product_name);
+
+--to add NOT NULL later ->
+ALTER TABLE products
+MODIFY price DECIMAL(4, 2) NOT NULL;
+
+-- to add DEFAULT constraint later ->
+ALTER TABLE products
+ALTER price
+SET DEFAULT 0; -- default price
+
+INSERT INTO products
+VALUES (100, "Hamburguer", 3.99),
+       (101, "Fries", 1.89),
+       (102, "soda", 1.00),
+       (103, "ice cream", 1.49);
+
+INSERT INTO products(product_id, product_name)
+VALUES (104, "straw"),
+       (105, "napkin"),
+       (106, "fork" ),
+       (107, "spoon"); -- price 0 is default
+
+DELETE FROM products WHERE product_id >= 104
+
+SELECT * FROM products
+
+
+-- 
+
+CREATE TABLE transactions(
+    transaction_id INT,
+    amount DECIMAL(5, 2),
+    transaction_date DATETIME DEFAULT NOW()
+);
+
+INSERT INTO transactions(transaction_id, amount)
+VALUES(3, 8.37);
+
+DROP TABLE transactions;
+
+SELECT * FROM transactions

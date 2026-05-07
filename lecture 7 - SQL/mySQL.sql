@@ -160,6 +160,7 @@ SELECT * FROM test;
 -- DEFAULT: Sets a default value for a column when no value is specified.
 
 
+
 -- CONSTRAINTS -> UNIQUE and NOT NULL and DEFAULT--
 CREATE TABLE products (
     product_id INT,
@@ -196,6 +197,7 @@ VALUES (104, "straw"),
 DELETE FROM products WHERE product_id >= 104
 
 SELECT * FROM products
+
 
 
 -- PRIMARY KEY, AUTO_INCREMENT and FOREIGN KEY-- 
@@ -244,3 +246,7 @@ FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 DROP TABLE transactions;
 
 SELECT * FROM transactions
+
+
+
+-- JOINS -- 

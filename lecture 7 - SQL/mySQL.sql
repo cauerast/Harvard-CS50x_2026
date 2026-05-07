@@ -284,15 +284,14 @@ select AVG(amount) as average
 from transactions; -- count return the avegage of list;
 
 select SUM(amount) as sum
+
 from transactions; -- return them sum of column
 
 select concat(first_name, " ", last_name) from employees as full_name
 from employees; 
 
-alter table employees
+alter table employees;
 add column job varchar(25) after hourly_pay;
-
 SELECT * from employees;
-
 
 select * from transactions;

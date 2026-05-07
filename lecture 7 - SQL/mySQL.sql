@@ -35,7 +35,7 @@ MODIFY COLUMN email VARCHAR(100);
 
 
 
--- CHANGE THE COLUMN LOCATION -- 
+-- CHANGE THE COLUMN LOCATION --
 ALTER TABLE employees
 MODIFY email VARCHAR(100)
 AFTER last_name; -- after x
@@ -60,8 +60,58 @@ VALUES (1, "Eugene", "Krabs", 25.50, "2026-01-10"),
 INSERT INTO employees(employee_id, first_name, last_name)
 VALUES (6, "Sheldon", "Plankton"); -- to insert NULL values
 
-SELECT * FROM employees;
-
 
 
 -- SELECT -- 
+SELECT * FROM employees;
+
+SELECT first_name, last_name, hire_date
+FROM employees;
+
+SELECT * FROM employees WHERE employee_id = 2;
+-- where = conditional
+
+SELECT * FROM employees
+WHERE hourly_pay >= 15.00;
+
+SELECT * FROM employees
+WHERE hire_date <= "2026-02-05";
+
+SELECT * FROM employees WHERE employee_id != 1;
+
+SELECT * FROM employees
+WHERE hire_date IS NULL;
+
+
+
+-- UPDATE --
+UPDATE employees
+SET hourly_pay = 10.25,
+    hire_date = "2026-01-07"
+WHERE employee_id = 6;
+
+UPDATE employees
+SET hourly_pay = 10.25,
+    hire_date = "2026-01-07";
+--this update all--
+
+
+
+-- DELETE --
+DELETE FROM employees
+WHERE employee_id = 6; -- delete plankton
+
+DELETE FROM employees; -- delete all
+
+
+-- to dont delete accidentally
+SET AUTOCOMMIT = OFF; -- save mannualy now
+
+COMMIT; -- make a savepoint
+
+ROLLBACK; -- restore by savepoint
+
+SELECT * FROM employees;
+
+
+SELECT * FROM employees;

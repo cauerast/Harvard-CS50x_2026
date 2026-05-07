@@ -261,3 +261,14 @@ SELECT * FROM customers;
 SELECT * FROM transactions INNER JOIN customers
 ON transactions.customer_id = customers.customer_id;
 
+SELECT * from transactions LEFT JOIN customers
+ON transactions.customer_id = customers.customer_id;
+
+SELECT * from transactions RIGHT JOIN customers
+ON transactions.customer_id = customers.customer_id;
+
+
+
+-- FUNCTIONS -- 
+
+

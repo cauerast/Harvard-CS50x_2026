@@ -243,7 +243,7 @@ ALTER TABLE transactions
 ADD CONSTRAINT fk_customer_id
 FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 
-DROP TABLE transactions;
+DROP TABLE customers;
 
 SELECT * FROM transactions
 
@@ -255,4 +255,8 @@ VALUES (1.00, NULL);
 SELECT * FROM transactions;
 
 INSERT INTO customers(first_name, last_name)
-VALUES ("")
+VALUES ("Poppy", "Puff");
+SELECT * FROM customers;
+
+SELECT * FROM transactions INNER JOIN customers
+ON transactions.customer_id = customers.customer_id;
